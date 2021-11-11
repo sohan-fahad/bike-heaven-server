@@ -83,8 +83,8 @@ async function run() {
             res.send(result)
         })
 
+        // Makee admin API
         app.put('/useradmin', async(req, res)=> {
-            console.log("hit",req.body)
             const user = req.body
             const filter = await {email: user?.email}
             console.log(filter)
@@ -122,6 +122,8 @@ async function run() {
             const result = await orderCollection.find(query).toArray()
             res.send(result)
         })
+
+        // User Order API
         app.get('/myorder/:email', async (req, res) => {
             const email = req.params.email;
             const query = { email: email }
